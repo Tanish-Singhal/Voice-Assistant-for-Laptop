@@ -63,3 +63,127 @@ def takeCommand():
         print("Say that again please...")  
         return "None"
     return query
+
+
+if __name__ == "__main__":
+    wishMe()
+    while True:
+    # if 1:
+        query = takeCommand().lower()
+
+
+        elif "wikipedia" in query:
+            speak('Searching Wikipedia...')
+            query = query.replace("on wikipedia", "")
+            results = wikipedia.summary(query, sentences = 2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+            # quit()
+
+
+        elif "open instagram" in query:
+            webbrowser.open_new_tab("instagram.com")
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open whatsapp" in query:
+            webbrowser.open_new_tab("web.whatsapp.com")
+            speak("Done sir!")
+            # quit()
+
+        
+        elif "open facebook" in query:
+            webbrowser.open_new_tab("facebook.com")
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open youtube" in query:
+            webbrowser.open_new_tab("youtube.com")
+            speak("Done sir!")
+            # quit()
+
+            
+        elif "search on youtube" in query:
+            speak("What should I search for you sir ?")
+            search = takeCommand()
+            print(search)
+            url = "https://www.youtube.com/results?search_query=" + search
+            webbrowser.open(url)
+            speak("Done sir!")
+            # quit()
+
+
+        elif "search on browser" in query:
+            speak("What should I search for you sir ?")
+            search = takeCommand()
+            webbrowser.open_new_tab(search + "")
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open a website" in query:
+            speak("Which website you want me to open sir ?")
+            search = takeCommand()
+            web = "https://www." + search + ".com"
+            webbrowser.open(web)
+            speak("Done sir!")
+            # quit()
+
+
+
+        elif "play a song" in query:
+            music_dir = 'D:\\Songs'
+            songs = os.listdir(music_dir)
+            print(songs)    
+            os.startfile(os.path.join(music_dir, songs[0]))
+            # quit()
+
+        
+        elif "open new code file" in query:
+            codepath = "C:\\Users\\Tanish Singhal\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            os.startfile(codepath)
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open microsoft word" in query:
+            loc1 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
+            os.startfile(loc1)
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open microsoft powerpoint" in query:
+            loc2 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE"
+            os.startfile(loc2)
+            speak("Done sir!")
+            # quit()
+
+
+        elif "open microsoft excel" in query:
+            loc3 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE"
+            os.startfile(loc3)
+            speak("Done sir!")
+            # quit()
+
+
+        elif "what is the time" in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak("Sir, the time is ")
+            print(strTime) 
+            speak(strTime)
+            # quit()
+      
+
+        elif "go to sleep mode" in query:
+            speak("Ok sir, But you can call me anytime")
+            # quit()
+
+
+        else:
+            speak("Try Again")
+    
+quit()
