@@ -6,7 +6,7 @@ import webbrowser
 import os
 
 
-engine = pyttsx3.init('sapi5')          
+engine = pyttsx3.init('sapi5')          # It was a Microsoft API 
 voices = engine.getProperty('voices')
 # print(voices[0].id)
 engine.setProperty('voice', voices[0].id)
@@ -71,7 +71,22 @@ if __name__ == "__main__":
     # if 1:
         query = takeCommand().lower()
 
+        
+        if "aur batao kaise ho" in query:
+            print ("Hum Bhaut Badiya hai, Ap Batao")
+            speak ("Hum Bhaut Badiya hai, Ap Batao")
 
+
+        elif "teacher se milo" in query:
+            print ("Namaste Maam. Namaste Sir")
+            speak ("Namaste Maam. Namaste Sir")
+
+        
+        elif "ek kam karo" in query:
+            print ("Haa Batao")
+            speak ("Haa Batao")
+            
+            
         elif "wikipedia" in query:
             speak('Searching Wikipedia...')
             query = query.replace("on wikipedia", "")
@@ -133,8 +148,7 @@ if __name__ == "__main__":
             # quit()
 
 
-
-        elif "play a song" in query:
+        elif "gana chalao" in query:
             music_dir = 'D:\\Songs'
             songs = os.listdir(music_dir)
             print(songs)    
@@ -149,21 +163,21 @@ if __name__ == "__main__":
             # quit()
 
 
-        elif "open microsoft word" in query:
+        elif "microsoft excel chalao" in query:
             loc1 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
             os.startfile(loc1)
             speak("Done sir!")
             # quit()
 
 
-        elif "open microsoft powerpoint" in query:
+        elif "microsoft excel chalao" in query:
             loc2 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE"
             os.startfile(loc2)
             speak("Done sir!")
             # quit()
 
 
-        elif "open microsoft excel" in query:
+        elif "microsoft excel chalao" in query:
             loc3 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE"
             os.startfile(loc3)
             speak("Done sir!")
