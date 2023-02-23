@@ -1,26 +1,26 @@
 import pyttsx3
 import datetime
-import speech_recognition as sr
+import speech_recognition as sr     # here we use aliasing
 import wikipedia
 import webbrowser
 import os
 
 
 engine = pyttsx3.init('sapi5')          # It was a Microsoft API 
-voices = engine.getProperty('voices')
+voices = engine.getProperty('voices')   # getting details of current voices
 # print(voices[0].id)
 engine.setProperty('voice', voices[0].id)
 engine.setProperty("rate",150)
 
 def speak(audio):
     engine.say(audio)
-    engine.runAndWait()
+    engine.runAndWait()     #without this command, speech will not be audible to us
 
 
 print("\n")
 
 
-def wishMe():
+def wishMe():       # this function wishme accordin to the time which was displayed by my system
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         print("Good Morning! Tanish")
@@ -45,7 +45,7 @@ def wishMe():
         print("\n")
 
 
-def takeCommand():
+def takeCommand():          # It takes microphone input from the user and returns string output
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -56,12 +56,12 @@ def takeCommand():
 
     try:
         print("Recognizing...")    
-        query = r.recognize_google(audio, language='en-in')
-        print(f"User said: {query}\n")
+        query = r.recognize_google(audio, language='en-in')     # Using google for voice recognition
+        print(f"User said: {query}\n")      # User query will be printed
 
     except Exception as e:  
-        print("Say that again please...")  
-        return "None"
+        print("Say that again please...")       # Say that again please... line will be printes in case of improper voice
+        return "None"       # None string will be returned
     return query
 
 
@@ -69,10 +69,11 @@ if __name__ == "__main__":
     wishMe()
     while True:
     # if 1:
-        query = takeCommand().lower()
+        query = takeCommand().lower()       # Converting user query into lower case
 
         
-        if "aur batao kaise ho" in query:
+        # Logic for executing tasks based on query
+        if "aur batao kaise ho" in query:               # Here I also inlcude be=unch of Hindi commands which you can also use
             print ("Hum Bhaut Badiya hai, Ap Batao")
             speak ("Hum Bhaut Badiya hai, Ap Batao")
 
